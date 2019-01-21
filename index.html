@@ -4,5 +4,26 @@
 </head>
 <body>
   <p>hello</p>
+  <input type="text" class="curenncy" placeholder="Currency, e.g. DKK" />
+  <input type="text" class="descr" placeholder="Merchant name, e.g. LinkedIn" />
+  <button onclick="pay();">Open payment window</button>
+  <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="//sdk.paylike.io/3.js"></script>
+  <script>
+    var paylike = Paylike('your key');
+    function pay() {
+      paylike.popup({
+        currency: $('.currency').val(),
+        descriptor: $('.descr').val()
+      }, function( err, res ){
+          if (err){
+            alert('error &mdash; look in the console');
+            return console.log(err);
+          }
+        console.log(res.transaction.id);
+        alert('Success');
+      });
+    }
+    </script>
 </body>
 </html>
