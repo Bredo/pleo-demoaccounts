@@ -19,55 +19,9 @@
 </head>
 <body>
   <div class="ui middle aligned center aligned grid">
-  <div class="column">
-    <h2 class="ui teal image header">
-      <div class="content">
-        🇩🇰 DK-demo 
-      </div>
-    </h2>
-    <form class="ui large form">
-      <div class="ui stacked segment">
-        <div class="field">
-          <div class="ui left icon input">
-            <i class="flag icon"></i>
-            <input type="text" class="currency" placeholder="Currency, e.g. DKK" />
-          </div>
-        </div>
-        <div class="field">
-          <div class="ui left icon input">
-            <i class="money icon"></i>
-            <input type="text" class="amount" placeholder="Amount in minor units - e.g. 10000 = 100 DKK" />
-          </div>
-        </div>
-        <div class="field">
-          <div class="ui left icon input">
-            <i class="shop icon"></i>
-            <input type="text" class="descr" placeholder="Merchant name, e.g. LinkedIn" />
-          </div>
-        </div>
-        <div class="ui fluid large teal submit button" onclick="pay();">Open payment window</div>
-      </div>
-    </form>
+    <p>
+      Please use https://pleo-bd.github.io/demoaccounts/ instead.
+    </p>
   </div>
-</div>
-  <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="//sdk.paylike.io/3.js"></script>
-  <script>
-    var paylike = Paylike('a12c1a6d-25cf-42dd-bcf2-9d883d5de3d4');
-    function pay() {
-      paylike.popup({
-        currency: $('.currency').val(),
-        amount: $('.amount').val(),
-        descriptor: $('.descr').val()
-      }, function( err, res ){
-          if (err){
-            alert('error &mdash; look in the console');
-            return console.log(err);
-          }
-        console.log(res.transaction.id);
-        alert('Success');
-      });
-    }
-    </script>
 </body>
 </html>
